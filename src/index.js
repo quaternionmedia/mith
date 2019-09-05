@@ -6,7 +6,9 @@ m.route(document.body, "/", {
   "/":{
     render: function() {
       return m(Splash, {
-        src:'images/elsuit.jpg'
+        style: {
+          backgroundImage: 'url("images/elsuit.jpg")'
+        }
       })
     }
   }
