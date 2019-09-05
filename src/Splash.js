@@ -3,6 +3,6 @@ var m = require("mithril");
 
 module.exports = {
   view: function(vnode) {
-    return m('img', vnode.attrs)
+    return m('img[class=splash]', vnode.attrs)
   }
 }
