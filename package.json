@@ -13,10 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.7.2",
     "classnames": "^2.2.6",
     "mithril": "^2.0.4"
   },
   "devDependencies": {
+    "cssnano": "^4.1.10",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8"
   }

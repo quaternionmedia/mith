@@ -1,6 +1,4 @@
-var m = require("mithril");
-var classNames = require('classnames');
-
+import m from "mithril";
 
 var Bkg = {
   //let bkg = '';
@@ -9,7 +7,7 @@ var Bkg = {
     m.request({method: "GET", url: "/api/cover"})
     .then(function(r) {
       Bkg.bkg = `url("${r}")`;
-      console.log('bkg: ', bkg);
+      // console.log('splash photo: ', bkg);
     });
   }
 }
@@ -23,8 +21,8 @@ var Splash = {
         backgroundImage: Bkg.bkg
       },
     },
-    [m('[style=height:30vh]'),
-    m('.container .head [style=height:20vh]', 'splash!'),
+    [m('[style=height:35vh]'),
+    m('.container .head [style=height:15vh]', 'splash!'),
     m('[style=height:50vh]')
     ])
   },
