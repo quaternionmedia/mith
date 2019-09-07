@@ -29,7 +29,7 @@ var Player = {
       src: Player.playlist[Player.index],
     }]};
     Player.player.play();
-    console.log('next ', Player.index, Player.player.source)
+    console.log('next ', Player.index, Player.player.source, s)
   },
   prevSong: function(s) {
     if (--Player.index == -1) {
@@ -42,7 +42,17 @@ var Player = {
     }]};
     Player.player.play();
     console.log('next ', Player.index, Player.player.source)
-    }
+  },
+  changeSong: function(s) {
+    Player.player.source = {
+      type: 'audio',
+    sources: [{
+      src: s.target.textContent,
+    }]};
+    Player.index = Player.playlist.indexOf(s.target.textContent)
+    Player.player.play();
+    console.log('change song', s)
+  }
   }
 
 module.exports = {
@@ -60,7 +70,10 @@ module.exports = {
       m('.playlist', {style:{
         display:Player.playlistVisible ? 'inline' : 'none'}
       }, Player.playlist.map(function(song) {
-        return m('.playlistItem', song)
+        return m(
+          song == Player.playlist[Player.index] ? '.playlistItem[class=playing]' : '.playlistItem',
+          {onclick: Player.changeSong},
+          song)
       })),
       m('span[class=playlistControls][style=display:flex; width:75vw]', [
         m('button[class=plyr__controls]', {onclick: Player.prevSong}, '<<'),
