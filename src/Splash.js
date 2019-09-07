@@ -22,7 +22,7 @@ var Splash = {
       },
     },
     [m('[style=height:35vh]'),
-    m('.container .head [style=height:15vh]', 'splash!'),
+    m('.container .highlightBox [style=height:15vh]', 'splash!'),
     m('[style=height:50vh]')
     ])
   },

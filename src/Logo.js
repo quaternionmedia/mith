@@ -3,6 +3,6 @@ import "animate.css";
 
 module.exports = {
   view: function(vnode) {
-    return m('h1', {class: 'animated fadeInLeft'}, 'Harpo!')
+    return m('h1', {class: 'animated fadeInLeft header highlightBox roundCorners'}, 'Harpo!')
   }
 }

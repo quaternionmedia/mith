@@ -15,7 +15,8 @@
   "dependencies": {
     "animate.css": "^3.7.2",
     "classnames": "^2.2.6",
-    "mithril": "^2.0.4"
+    "mithril": "^2.0.4",
+    "plyr": "^3.5.6"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",

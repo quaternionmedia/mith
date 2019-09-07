@@ -18,10 +18,24 @@ section {
   height: 100vh;
 }
 
-.head {
+.highlightBox {
   padding: 20px;
   font-weight: normal;
   text-align: center;
-  background-color: rgba(242,242,242,.9);
+  background-color: rgba(222,222,222,.8);
 
+}
+
+.header {
+  position: fixed;
+}
+
+.roundCorners {
+  border-radius: 20px;
+}
+
+.plyr__controls {
+  padding: 5px;
+  border-radius: 20px;
+  margin-left: 25vw;
 }
