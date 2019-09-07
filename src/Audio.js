@@ -6,6 +6,10 @@ var Player = {
   song: null,
   playlist: ['images/1.mp3', 'images/2.mp3', 'images/3.mp3', 'images/4.mp3', 'images/5.mp3', 'images/6.mp3'],
   index: null,
+  playlistVisible: false,
+  togglePlaylist: function() {
+    Player.playlistVisible = !Player.playlistVisible;
+  },
   sources: [],
   initPlayer: function() {
         Player.player = new Plyr('#player');
@@ -44,7 +48,7 @@ var Player = {
 module.exports = {
   oncreate: Player.initPlayer,
   view: function(vnode) {
-    return m('div[style=position:fixed;width:75vw]',
+    return m('.audio[style=position:fixed;max-width:75vw]',
       [m('audio#player', {
         controls: true,
         src: Player.song,
@@ -53,11 +57,14 @@ module.exports = {
           position: 'fixed'
         }
       }),
-      m('.playlist', Player.playlist.map(function(song) {
+      m('.playlist', {style:{
+        display:Player.playlistVisible ? 'inline' : 'none'}
+      }, Player.playlist.map(function(song) {
         return m('.playlistItem', song)
       })),
-      m('span[style=display:flex; width:75vw]', [
+      m('span[class=playlistControls][style=display:flex; width:75vw]', [
         m('button[class=plyr__controls]', {onclick: Player.prevSong}, '<<'),
+        m('button[class=plyr__controls]', {onclick: Player.togglePlaylist}, 'playlist'),
         m('button[class=plyr__controls]', {onclick: Player.nextSong}, '>>'),
       ],),
     ], )
