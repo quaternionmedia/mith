@@ -39,3 +39,7 @@ section {
   border-radius: 20px;
   margin-left: 25vw;
 }
+
+.playlistButtons {
+  display: inline-flex;
+}

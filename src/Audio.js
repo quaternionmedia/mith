@@ -10,21 +10,33 @@ var Player = {
   initPlayer: function() {
         Player.player = new Plyr('#player');
         Player.index = 0;
-        Player.playlist.forEach(function(e) {
-          Player.sources.push({src: e,  type: 'audio/mp3',});});
+        Player.player.source = {type:'audio', sources:
+          [{src: Player.playlist[Player.index],  type: 'audio/mp3',}]};
         Player.player.on('ended', Player.changeSong)
-        console.log('player ', Player.sources)
+        console.log('player ', Player.player.source)
   },
-  changeSong: function(s) {
+  nextSong: function(s) {
+    if (++Player.index == Player.playlist.length) {
+      Player.index = 0;
+    }
     Player.player.source = {
       type: 'audio',
     sources: [{
-      src: Player.playlist[Player.index++],
+      src: Player.playlist[Player.index],
     }]};
     Player.player.play();
-    if (Player.index == Player.playlist.length) {
-      Player.index = 0;
-    }
+    console.log('next ', Player.index, Player.player.source)
+  },
+  prevSong: function(s) {
+    if (Player.index == 0) {
+      Player.index = Player.playlist.length - 1;
+    } else {Player.index--;}
+    Player.player.source = {
+      type: 'audio',
+    sources: [{
+      src: Player.playlist[Player.index],
+    }]};
+    Player.player.play();
     console.log('next ', Player.index, Player.player.source)
     }
   }
@@ -43,10 +55,11 @@ module.exports = {
           position: 'fixed'
         }
       }),
-      m('.playlist', Player.playlist.map(function(song) {
-        return m('.playlistItem', {})
+      m('span[class=playlistButtons]', Player.playlist.map(function(song) {
+        return m('', {})
       })),
-      m('button[class=plyr__controls]', {onclick: Player.changeSong}, 'next')
+      m('button[class=plyr__controls]', {onclick: Player.prevSong}, 'prev'),
+      m('button[class=plyr__controls]', {onclick: Player.nextSong}, 'next'),
     ], )
   }
 }
