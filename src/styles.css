@@ -40,6 +40,14 @@ section {
   margin-left: 25vw;
 }
 
+.playlistItem {
+  margin-left: 25vw;
+  background-color: rgba(222,222,222,.8);
+  text-align: center;
+  padding: 2px;
+
+
+}
 .playlistButtons {
   display: inline-flex;
 }
