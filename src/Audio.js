@@ -29,6 +29,7 @@ var Player = {
       src: Player.playlist[Player.index],
     }]};
     Player.player.play();
+    m.redraw();
     console.log('next ', Player.index, Player.player.source, s)
   },
   prevSong: function(s) {
