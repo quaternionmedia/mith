@@ -2,7 +2,7 @@
 Single Page Application architecture, written with [Mithriljs](mithriljs.org)
 
 > It is a lovely language, but it takes a very long time to say anything in it...
-
+>
 > ~ Treebeard, _The Two Towers_
 
 ### Usage

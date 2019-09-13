@@ -5,6 +5,7 @@ var Audio = require("./Audio");
 var Video = require("./Video");
 var Contact = require("./Contact");
 var Footer = require("./Footer");
+var Calendar = require("./Calendar");
 
 var App = {
   view: function(vnode) {
@@ -14,6 +15,7 @@ var App = {
       m(Splash),
       m(Video),
       m(Contact),
+      m(Calendar),
       m(Footer),
     ]
   }
