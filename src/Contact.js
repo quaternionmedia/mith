@@ -5,7 +5,10 @@ module.exports = {
     return m('section#contact[class=container]', [
       m('h2', 'Contact us!'),
       m('p', 'Seriously! Hire us!'),
-      m('form#form', [
+      m('form#form', {
+        action: '/api/contact',
+        method: 'post'
+      }, [
         m('label[for=name]', 'Name'),
         m('input#name', {type:'text', name:'name', placeholder: 'your name'}),
         m('br'),
