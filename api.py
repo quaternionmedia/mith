@@ -3,12 +3,6 @@ from starlette.staticfiles import StaticFiles
 from starlette.requests import Request
 from uvicorn import run
 from sys import argv
-from pydantic import BaseModel
-
-class Contact(BaseModel):
-    # name: str
-    # email: str
-    message: str
 
 app = FastAPI()
 
@@ -20,8 +14,10 @@ def cover():
     return '/images/elsuit.jpg'
 
 @api.post('/contact')
-async def contact(name: str = Form(...), email: str = Form(...), message: str = Form(...)):
-    # res = await req.form()
+async def contact(
+        name: str = Form(...),
+        email: str = Form(...),
+        message: str = Form(...)):
     print(f'message from {name} at {email} saying: {message}')
     return 'ok!'
 

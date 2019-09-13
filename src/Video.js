@@ -17,6 +17,7 @@ var Video = {
   gallery: null,
   options: {
     hidePageScrollbars: false,
+    toggleSlideshowOnSpace: false,
   },
   initPlayer: function() {
     Video.gallery = blueimp.Gallery(Video.videos, Video.options);

@@ -14,11 +14,11 @@ module.exports = {
         m('br'),
         m('label[for=email]', 'Email'),
         m('input#email', {
-          type:'text', name:'email', placeholder: 'your email'}, 'Your email'),
+          type:'email', name:'email', placeholder: 'your email'}, 'Your email'),
         m('br'),
         m('label[for=message]', 'Message'),
-        m('input#message', {type:'text', name:'message', placeholder: 'your message'}),
-        m('input', {type:'submit',value:'Submit'})
+        m('textarea', {name:'message', placeholder: 'your message'}),
+        m('input#send', {type:'submit',value:'Submit'})
       ])
     ])
   }
